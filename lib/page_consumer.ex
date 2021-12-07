@@ -9,7 +9,7 @@ defmodule FakeScrapper.PageConsumer do
 
   def init(intital_state) do
     Logger.info("PageConsumer init")
-    {:consumer, intital_state, subscribe_to: [PageProducer]}
+    {:consumer, intital_state, subscribe_to: [FakeScrapper.PageProducer]}
   end
 
   def handle_events(events, _from, state) do
