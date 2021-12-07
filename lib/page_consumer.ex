@@ -1,4 +1,4 @@
-defmodule FakeScrapper.PageProducer do
+defmodule FakeScrapper.PageConsumer do
   use GenStage
   require Logger
 
