@@ -8,8 +8,8 @@ defmodule FakeScrapper.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      FakeScrapper.PageProducer,
-      FakeScrapper.PageConsumer
+      PageProducer,
+      PageConsumer
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

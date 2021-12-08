@@ -1,4 +1,4 @@
-defmodule FakeScrapper.PageConsumer do
+defmodule PageConsumer do
   use GenStage
   require Logger
 
@@ -9,7 +9,9 @@ defmodule FakeScrapper.PageConsumer do
 
   def init(intital_state) do
     Logger.info("PageConsumer init")
-    {:consumer, intital_state, subscribe_to: [FakeScrapper.PageProducer]}
+
+    sub_opts = [{PageProducer, min_demand: 0, max_demand: 3}]
+    {:consumer, intital_state, subscribe_to: sub_opts}
   end
 
   def handle_events(events, _from, state) do
