@@ -18,7 +18,7 @@ defmodule PageConsumer do
     Logger.info("PageConsumer received #{inspect(events)}")
 
     # Pretending we're scraping webpages
-    Enum.each(events, fn _page -> FakeScrapper.work() end)
+    Enum.each(events, &(FakeScrapper.work(&1)))
 
     {:noreply, [], state}
   end
