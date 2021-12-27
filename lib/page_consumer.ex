@@ -10,7 +10,7 @@ defmodule PageConsumer do
   def init(intital_state) do
     Logger.info("PageConsumer init")
 
-    sub_opts = [{PageProducer, min_demand: 0, max_demand: 3}]
+    sub_opts = [{PageProducer, min_demand: 0, max_demand: 1}]
     {:consumer, intital_state, subscribe_to: sub_opts}
   end
 
