@@ -20,7 +20,7 @@ defmodule PageConsumerSupervisor do
     opts = [
       strategy: :one_for_one,
       subscribe_to: [
-        {PageProducer, max_demand: 2}
+        {PageProducer, max_demand: System.schedulers_online() * 2}
       ]
     ]
 
