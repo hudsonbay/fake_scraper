@@ -8,8 +8,8 @@ defmodule PageProducer do
   end
 
   def init(initial_state) do
-    Logger.info("PagerProducer init")
-    {:producer, initial_state}
+    Logger.info("PageProducer init")
+    {:producer, initial_state, buffer_size: 1}
   end
 
   def handle_demand(demand, state) do
