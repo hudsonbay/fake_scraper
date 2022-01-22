@@ -1,6 +1,6 @@
 # Fake scrapper
 
-Fake service that scrapes data from web pages—normally an intensive task, dependent on system resources and a reliable network connection. The goal here is to be able to request a number of URLs to be scraped, and have a GenStage data pipeline take care of the workload.
+Fake service that scrapes data from web pages, normally an intensive task, dependent on system resources and a reliable network connection. The goal here is to be able to request a number of URLs to be scraped, and have a GenStage data pipeline take care of the workload.
 
 This is the result of following the book _Concurrent Data Processing in Elixir Fast, Resilient Applications with OTP, GenStage, Flow, and Broadway_ by Svilen Gospodinov
 
@@ -19,7 +19,9 @@ consumer will take at least one event when it is available, up to three at a tim
 
 If we set `max_demand` to 1 the events will be requested one by one, so it won't be processed in batches.
 
-##### It all depends on the configuration that works best for the specific project
+**It all depends on the configuration that works best for the specific project**
+
+This project uses multiple supervised consumers to process events one by one, concurrently.
 
 ## How to interact with this project
 
